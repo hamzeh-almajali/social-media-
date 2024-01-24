@@ -80,7 +80,7 @@
 
                                         <div class="we-video-info">
                                             <ul>
-                                               
+
 
                                                 <li>
                                                     <span class="comment" data-toggle="tooltip" title="Comments">

@@ -7,7 +7,8 @@
 @section('bodyhead')
 <section>
     <div class="feature-photo">
-        <figure><img src="{{asset('images/'.$profile->profile_cover)}}" alt=""></figure>
+        {{dd($profile->profile_cover)}}
+        {{-- <figure><img src="{{asset('images/'.$profile->profile_cover)}}" alt=""></figure> --}}
         <div class="add-btn">
 
 
@@ -21,22 +22,25 @@
         @if ($profile->id == Auth::user()->id)
 
        @else
-          @foreach ($profile->friends as $key)
-     @if ($key['userid'] == Auth::user()->id && $key['status'] == 'pending')
-     <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">cancel request</a>
-         @php
-         $buttonPrinted = true;
-         break;
-     @endphp
-     @elseif ($key['userid'] == Auth::user()->id && $key['status'] == 'accepted')
-     <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">remove Friend</a>
+       @if ($profile->friends)
 
-         @php
-             $buttonPrinted = true;
-             break;
-         @endphp
-          @endif
+       @foreach ($profile->friends as $key)
+  @if ($key['userid'] == Auth::user()->id && $key['status'] == 'pending')
+  <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">cancel request</a>
+      @php
+      $buttonPrinted = true;
+      break;
+  @endphp
+  @elseif ($key['userid'] == Auth::user()->id && $key['status'] == 'accepted')
+  <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">remove Friend</a>
+
+      @php
+          $buttonPrinted = true;
+          break;
+      @endphp
+       @endif
 @endforeach
+       @endif
 @if (!$buttonPrinted)
 <a href="{{ route('homee', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">Add Friend </a>
 @endif
@@ -168,7 +172,7 @@
                         <img src="{{asset('images/'.$profile->profile_image)}}" alt="">
                     </figure>
                     <div class="friend-name">
-                        <ins><a href="time-line.html" title="">{{$profile->name}}</a></ins>
+                        <ins><a href="{{route('profilee',['userid' => $post->user->id ])}}" title="">{{$profile->name}}</a></ins>
 
 
                         <span>{{$post->created_at->diffForHumans() }}</span>
@@ -233,7 +237,7 @@
                                     </div>
                                     <div class="we-comment">
                                         <div class="coment-head">
-                                            <h5><a href="time-line.html" title="">{{$comment->user->name}}</a></h5>
+                                            <h5><a href="{{route('profilee',['userid' => $comment->user->id ])}}" title="">{{$comment->user->name}}</a></h5>
                                             <span>{{$comment->created_at->diffForHumans()}}</span>
                                             <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                         </div>

@@ -23,6 +23,7 @@
         @if ($profile->id == Auth::user()->id)
 
        @else
+       @dd($profile)
        @if ($profile->friends !== null)
 
        @foreach ($profile->friends as $key)
@@ -137,10 +138,10 @@
                         <li>
                             <div class="nearly-pepls">
                         <figure>
-                            <a href="time-line.html" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
+                            <a href="{{route('profilee',['userid' => $user2->id ])}}" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
                         </figure>
                         <div class="pepl-info">
-                            <h4><a href="time-line.html" title="">{{$user->name}}</a></h4>
+                            <h4><a href="{{route('profilee',['userid' => $user2->id ])}}" title="">{{$user->name}}</a></h4>
                             <span>{{$user->email}}</span>
                             <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $user->id]) }}" title="" class="add-butn more-action" data-ripple="">unfriend</a>
                             {{-- <a href="#" title="" class="add-butn" data-ripple="">add friend</a> --}}
@@ -172,10 +173,10 @@
                 <li>
                     <div class="nearly-pepls">
                         <figure>
-                            <a href="time-line.html" title=""><img src="{{asset('images/'.$user2->profile_image)}}" alt=""></a>
+                            <a href="{{route('profilee',['userid' => $user2->id ])}}" title=""><img src="{{asset('images/'.$user2->profile_image)}}" alt=""></a>
                         </figure>
                         <div class="pepl-info">
-                            <h4><a href="time-line.html" title="">{{$user2->name}}</a></h4>
+                            <h4><a href="{{route('profilee',['userid' => $user2->id ])}}" title="">{{$user2->name}}</a></h4>
                             <span>{{$user2->email}}</span>
                             <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $user2->id]) }}" title="" class="add-butn more-action" data-ripple="">delete Request</a>
                             <a href="{{ route('accept', ['userid' => Auth::user()->id, 'userid2' => $user2->id]) }}" title="" class="add-butn" data-ripple="">Confirm</a>
