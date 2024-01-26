@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/color.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
-
+    @livewireStyles
 </head>
 <body>
 <!--<div class="se-pre-con"></div>-->
@@ -32,7 +32,7 @@
 
 
 
-        
+
 
 
 
@@ -48,7 +48,7 @@
 	<script src="{{asset('frontend/assets/js/script.js')}}"></script>
 	<script src="{{asset('frontend/assets/js/map-init.js')}}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
-
+    @livewireScripts
 </body>
 
 </html>
