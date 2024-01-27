@@ -130,7 +130,7 @@
                 <ul class="nearby-contct">
                     @if ($profile->friends !== null)
                     @foreach ($profile->friends as $key )
-                    @if ($key['status'] == 'pending' )
+                    @if ($key['status'] == 'pending')
                     @else
                     @php
                         $user=User::find($key['userid']);
@@ -138,10 +138,10 @@
                         <li>
                             <div class="nearly-pepls">
                         <figure>
-                            <a href="{{route('profilee',['userid' => $user2->id ])}}" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
+                            <a href="{{route('profilee',['userid' => $user->id ])}}" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
                         </figure>
                         <div class="pepl-info">
-                            <h4><a href="{{route('profilee',['userid' => $user2->id ])}}" title="">{{$user->name}}</a></h4>
+                            <h4><a href="{{route('profilee',['userid' => $user->id ])}}" title="">{{$user->name}}</a></h4>
                             <span>{{$user->email}}</span>
                             <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $user->id]) }}" title="" class="add-butn more-action" data-ripple="">unfriend</a>
                             {{-- <a href="#" title="" class="add-butn" data-ripple="">add friend</a> --}}
@@ -165,7 +165,7 @@
                     @endif
                     @if ($profile->friends !== null)
             @foreach ($profile->friends as $friend )
-                    @if ( $friend['status'] == 'pending' )
+                    @if ( $friend['status'] == 'pending' && $friend['type']=='res')
 
                     @php
                         $user2=User::find($friend['userid']);

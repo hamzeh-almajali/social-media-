@@ -22,15 +22,18 @@
         @if ($profile->id == Auth::user()->id)
 
        @else
-       @if ($profile->friends)
 
-       @foreach ($profile->friends as $key)
-  @if ($key['userid'] == Auth::user()->id && $key['status'] == 'pending')
-  <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">cancel request</a>
+       @if ($profile->friends !=null)
+
+       @foreach ($profile->friends as $key )
+
+
+       @if ($key['userid'] == Auth::user()->id && $key['status'] == 'pending'&& $key['type']=='res' )
+        <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">cancel request</a>
       @php
       $buttonPrinted = true;
       break;
-  @endphp
+    @endphp
   @elseif ($key['userid'] == Auth::user()->id && $key['status'] == 'accepted')
   <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">remove Friend</a>
 
@@ -38,6 +41,16 @@
           $buttonPrinted = true;
           break;
       @endphp
+  @elseif ($key['userid'] == Auth::user()->id && $key['status'] == 'pending' && $key['type']=='sent')
+  <a href="{{ route('accept', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="">confirm</a>
+  <a href="{{ route('cancel', ['userid' => Auth::user()->id, 'userid2' => $profile->id]) }}" title="" data-ripple="" style="color: white;">Reject</a>
+
+      @php
+          $buttonPrinted = true;
+          break;
+      @endphp
+
+
        @endif
 @endforeach
        @endif

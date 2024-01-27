@@ -60,7 +60,7 @@
             </ul>
         </div><!-- Shortcuts -->
    <!--    recent activites -->
-        <div class="widget stick-widget">
+        {{-- <div class="widget stick-widget">
             <h4 class="widget-title">Who's follownig</h4>
             <ul class="followers">
                 <li>
@@ -99,6 +99,7 @@
                     </div>
                 </li>
             </ul>
-        </div><!-- who's following -->
+        </div><!-- who's following --> --}}
+        @livewire('people-you')
     </aside>
 </div><!--
