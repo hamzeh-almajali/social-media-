@@ -13,7 +13,7 @@
                 <div class="row" id="page-contents">
                     @include('frontend.body.rightsidebar')
 
-                    <div class="col-lg-6">
+                    {{-- <div class="col-lg-6">
                         <div class="central-meta">
                             <div class="new-postbox">
                                 <figure>
@@ -152,7 +152,8 @@
                         </div>
                         @endforeach
                         </div>
-                    </div>
+                    </div> --}}
+                    @livewire('home-posts')
                     @include('frontend.body.liftsidebar')
                 </div></div></div></div></div>
 

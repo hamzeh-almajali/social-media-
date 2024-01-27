@@ -10,12 +10,12 @@ class PostController extends Controller
 {
     public function index(){
 
-        $posts= Post::with('comment')->get();
+        $posts= Post::with('comment')->orderBy('created_at', 'desc')->get();
         return view('frontend.home',compact('posts'));
 
     }
     public function store(Request $request){
-        
+
         $request->validate([
             'content' => 'required|max:500',
             'file' => 'image|mimes:jpeg,png,jpg|max:5000',

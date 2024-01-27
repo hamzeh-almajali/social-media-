@@ -1,9 +1,11 @@
 <?php
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PostController;
 use App\Models\User;
-
+use App\Livewire\ChatWith;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,23 @@ route::get('/profilee/{userid}',[App\Http\Controllers\HomeController::class,'add
 route::get('/friends/{userid}',[App\Http\Controllers\HomeController::class,'friends'])->name('friends')->middleware('auth');
 route::post('/profile',[App\Http\Controllers\HomeController::class,'updateprofileImage'])->name('profileImage');
 route::post('/profile-cover',[App\Http\Controllers\HomeController::class,'updatecoverImage'])->name('coverImage');
+
+
+route::get('/messeges/{userid}',[App\Http\Controllers\HomeController::class,'chat'])->name('chat.index');
+
+Route::get('/chat-with/{uuid}',[HomeController::class,'chat_uuid'])->name('chat_with');
+
+
+
+route::get('/groups',[GroupController::class,'index'])->name('group.index');
+route::get('/group-create/{userid}',[GroupController::class,'create'])->name('group.create');
+route::post('/groups',[GroupController::class,'store'])->name('group.store');
+
+route::get('/dashboard-group/{id}',[GroupController::class,'dashboard'])->name('group.dashboard');
+
+Route::post('/groups/{group}/follow', [GroupController::class, 'follow'])->name('groups.follow');
+    Route::post('/groups/{group}/unfollow', [GroupController::class, 'unfollow'])->name('groups.unfollow');
+
 route::get('/logins' ,function () {
 return view('frontend.login');
 
