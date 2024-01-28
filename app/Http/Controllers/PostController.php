@@ -45,6 +45,38 @@ class PostController extends Controller
         ]);
         return redirect()->back()->with('message','post added succesfully') ;
     }
+    public function store2(Request $request){
+
+        $request->validate([
+            'content' => 'required|max:500',
+            'file' => 'image|mimes:jpeg,png,jpg|max:5000',
+        ], [
+            'content.required' => 'The content field is required.',
+            'content.max' => 'The content must not exceed 500 characters.',
+            'file.image' => 'The uploaded file must be an image.',
+            'file.mimes' => 'Only JPEG, PNG, and JPG files are allowed.',
+            'file.max' => 'The file size must not exceed 5000 kilobytes.',
+        ]);
+
+
+        // Handle file upload if an image is provided
+        $fileName = null;
+        if ($request->hasFile('postimage')) {
+            $file = $request->file('postimage') ;
+            $fileName = $file->getClientOriginalName() ;
+            $destinationPath = public_path().'/images' ;
+            $file->move($destinationPath,$fileName);
+        }
+        Post::create([
+            'userid'=> $request->id,
+            'content'=>$request->content,
+            'image'=>$fileName,
+            'type'=>$request->Groupid,
+
+
+        ]);
+        return redirect()->back()->with('message','post added succesfully') ;
+    }
     // public function addlike($authid,$postid){
     //     $post=Post::find($postid);
     //     $like=$post->likes;

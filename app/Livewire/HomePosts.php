@@ -15,7 +15,7 @@ class HomePosts extends Component
     public $content;
     public function render()
     {
-        $posts= Post::with('comment')->orderBy('created_at', 'desc')->get();
+        $posts= Post::where('type',null)->with('comment')->orderBy('created_at', 'desc')->get();
 
         return view('livewire.home-posts',compact('posts'));
     }

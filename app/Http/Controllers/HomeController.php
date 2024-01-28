@@ -25,13 +25,26 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function chat_uuid($uuid){
+     return view('frontend.chat1',compact('uuid'));
+    }
     public function add($userid){
         $profile=User::where('id',$userid)->with('posts')->first();
 
         return view('frontend.profile', compact('profile') );
     }
+    public function chat($userid){
+
+        $profile=User::where('id',$userid)->with('posts')->first();
+        $currentUser = auth()->user();
+
+       $users= User::where('id', '!=', $currentUser->id)->get();
+
+        return view('frontend.chat', compact('profile','users') );
+    }
     public function friends($userid){
-        
+
         $profile=User::where('id',$userid)->with('posts')->first();
 
         return view('frontend.friends', compact('profile') );
