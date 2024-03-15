@@ -9,7 +9,7 @@
                 <div class="newpst-input">
                     <form method="post" action="{{route('postcreategroup')}}" enctype="multipart/form-data">
                         @csrf
-                        <textarea rows="2" placeholder="write something" name="content"></textarea>
+                        <textarea rows="2" placeholder="write something" name="content" maxlength="200"></textarea>
                         <div class="attachments">
                             <ul>
 
@@ -109,9 +109,9 @@
 
                                 </li>
                                 @endforeach
-                                <li>
+                                {{-- <li>
                                     <a href="#" title="" class="showmore underline">more comments</a>
-                                </li>
+                                </li> --}}
                                 <li class="post-comment">
                                     <div class="comet-avatar">
                                         <img src="{{asset('images/'.Auth::user()->profile_image)}}" alt="">

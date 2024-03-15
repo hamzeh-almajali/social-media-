@@ -8,7 +8,7 @@
     <section>
         <div class="feature-photo">
 
-            <figure><img src="{{ asset('images/' . $profile->profile_cover) }}" alt=""></figure>
+            <figure><img style="height:300px;" src="{{ asset('images/' . $profile->profile_cover) }}" alt=""></figure>
             <div class="add-btn">
 
 
@@ -74,7 +74,7 @@
                     <div class="col-lg-2 col-sm-3">
                         <div class="user-avatar">
                             <figure>
-                                <img src="{{ asset('images/' . $profile->profile_image) }}" alt="">
+                                <img style="max-width:230px ;height:auto;max-height:300px" src="{{ asset('images/' . $profile->profile_image) }}" alt="">
                                 @if (Auth::user()->id == $profile->id)
                                     <form class="edit-phto" action="{{ route('profileImage') }}" method="POST"
                                         enctype="multipart/form-data">

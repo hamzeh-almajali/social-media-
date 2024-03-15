@@ -2,12 +2,12 @@
     <div class="central-meta">
         <div class="new-postbox">
             <figure>
-                <img src="{{asset('images/'.Auth::user()->profile_image)}}" alt="">
+                <img style="max-width: 60px ; max-height:100px" src="{{asset('images/'.Auth::user()->profile_image)}}" alt="">
             </figure>
             <div class="newpst-input">
                 <form method="post" action="{{route('postcreate')}}" enctype="multipart/form-data">
                     @csrf
-                    <textarea rows="2" placeholder="write something" name="content"></textarea>
+                    <textarea rows="2" placeholder="write something" name="content" maxlength="200"></textarea>
                     <div class="attachments">
                         <ul>
 
@@ -47,7 +47,7 @@
                     <img src="{{asset('images/'.$post->user->profile_image)}}" alt="">
                 </figure>
                 <div class="friend-name">
-                    <ins><a href="{{route('profilee',['userid' => $post->user->id ])}}" title="">{{$post->user->name}}</a></ins>
+                    <ins style="color: orange;"><a style="color: orange;" href="{{route('profilee',['userid' => $post->user->id ])}}" title="">{{$post->user->name}}</a></ins>
                     <span>{{$post->created_at->diffForHumans()}}</span>
                 </div>
                 <div class="post-meta">
@@ -112,22 +112,22 @@
 
                     <li>
                         <div class="comet-avatar">
-                            <img src="{{asset('images/'. $comment->user->profile_image)}}" alt="">
+                            <img style="max-width: 60px" src="{{asset('images/'. $comment->user->profile_image)}}" alt="">
                         </div>
                         <div class="we-comment">
                             <div class="coment-head">
-                                <h5><a href="{{route('profilee',['userid' => $comment->user->id ])}}" title="">{{$comment->user->name}}</a></h5>
+                                <h5><a  style="color: orange;" href="{{route('profilee',['userid' => $comment->user->id ])}}" title="">{{$comment->user->name}}</a></h5>
                                 <span>{{$comment->created_at->diffForHumans()}}</span>
-                                <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+
                             </div>
                             <p>{{$comment->content }}</p>
                         </div>
 
                     </li>
                     @endforeach
-                    <li>
+                    {{-- <li>
                         <a href="#" title="" class="showmore underline">more comments</a>
-                    </li>
+                    </li> --}}
                     <li class="post-comment">
                         <div class="comet-avatar">
                             <img src="{{asset('images/'.Auth::user()->profile_image)}}" alt="">
@@ -145,7 +145,7 @@
                                 <textarea wire:model="content" placeholder="Post your comment"></textarea>
                                 <input type="hidden" name="userid" value="{{ Auth::user()->id }}" />
                                 <input type="hidden" name="postId" value="{{ $post->id }}" />
-                                <button type="submit" style="color: orange">Send</button>
+                                <button style="padding-bottom: 10px ;color: orange;" type="submit" >Send</button>
                             </form>
                         </div>
                     </li>

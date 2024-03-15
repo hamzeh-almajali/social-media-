@@ -116,8 +116,11 @@
 							  </label>
 							</div>
 							<a href="#" title="" class="already-have">Already have an account</a>
-							<div class="submit-btns">
-								<input type="submit" class="mtr-btn signup">
+							<div class="submit-btns" >
+								<input type="submit" class="mtr-btn " value="register" style="
+    background:#ff7900;
+    color: #ffffff;
+">
                                   {{-- <span style="color: white;">register </span> --}}
                                 {{-- </button> --}}
 							</div>

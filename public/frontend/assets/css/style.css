@@ -3000,6 +3000,9 @@ li.google {
 .contact-form form .submit-btns i {
     color: #fff;
 }
+.contact-form form .submit-btns input{
+    color: #fff;
+}
 
 .cntct-adres > ul {
     display: inline-block;

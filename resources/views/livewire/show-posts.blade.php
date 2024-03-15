@@ -11,7 +11,7 @@
                 <div class="newpst-input">
                     <form method="post" action="{{route('postcreate')}}" enctype="multipart/form-data">
                         @csrf
-                        <textarea rows="2" placeholder="write something" name="content"></textarea>
+                        <textarea rows="2" placeholder="write something" name="content" maxlength="200"></textarea>
                         <div class="attachments">
                             <ul>
 
@@ -121,9 +121,9 @@
 
                                 </li>
                                 @endforeach
-                                <li>
+                                {{-- <li>
                                     <a href="#" title="" class="showmore underline">more comments</a>
-                                </li>
+                                </li> --}}
                                 <li class="post-comment">
                                     <div class="comet-avatar">
                                         <img src="{{asset('images/'.Auth::user()->profile_image)}}" alt="">
@@ -138,10 +138,10 @@
                                         </form> --}}
                                         <form wire:submit.prevent="addComment({{$post->id}})">
                                             @csrf
-                                            <textarea wire:model="content" placeholder="Post your comment"></textarea>
+                                            <textarea wire:model="content" placeholder="Post your comment" maxlength="60"></textarea>
                                             <input type="hidden" name="userid" value="{{ Auth::user()->id }}" />
                                             <input type="hidden" name="postId" value="{{ $post->id }}" />
-                                            <button type="submit" style="color: orange">Send</button>
+                                            <button style="padding-bottom: 5px" type="submit" style="color: orange">Send</button>
                                         </form>
                                     </div>
                                 </li>

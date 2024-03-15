@@ -28,10 +28,10 @@
                         <li>
                             <div class="nearly-pepls">
                                 <figure>
-                                    <a href="time-line.html" title=""><img src="{{asset('images/'.$group->image)}}" alt=""></a>
+                                    <a href="{{route('group.dashboard',$group->id)}}" title=""><img  style="width: 100px ;height:auto;" src="{{asset('images/'.$group->image)}}" alt=""></a>
                                 </figure>
                                 <div class="pepl-info">
-                                    <h4><a href="time-line.html" title="">{{$group->name}}</a></h4>
+                                    <h4><a href="{{route('group.dashboard',$group->id)}}" title="">{{$group->name}}</a></h4>
                                     <em>{{$group->description}}</em>
                                     <a href="{{route('group.dashboard',$group->id)}}" title="" class="add-butn" data-ripple="">show</a>
                                 </div>

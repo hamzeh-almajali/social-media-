@@ -2,7 +2,7 @@
 
         <div class="top-search">
             <form  class="">
-                <input wire:model.live="query" type="text" placeholder="Search...">
+                <input wire:model.live="query" type="text" placeholder="Search..." >
                 <button data-ripple><i class="ti-search"></i></button>
             </form>
 

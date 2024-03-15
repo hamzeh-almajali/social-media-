@@ -41,11 +41,14 @@
             </li>
 
         </ul>
+        <a href="{{route('profilee',['userid' => Auth::user()->id ])}}">
+            
         <div class="user-img">
             <img src="{{asset('images/'.Auth::user()->profile_image)}}" alt="" style="width: 50px;">
-            <span class="status f-online"></span>
-            <div class="user-setting">
+            {{-- <span class="status f-online"></span> --}}
+            {{-- <div class="user-setting">
                 <a href="#" title=""><span class="status f-online"></span>online</a>
+
                 <a href="#" title=""><span class="status f-away"></span>away</a>
                 <a href="#" title=""><span class="status f-off"></span>offline</a>
                 <a href="{{route('profilee',['userid' => Auth::user()->id ])}}" title=""><i class="ti-user"></i> view profile</a>
@@ -53,7 +56,7 @@
                 <a href="#" title=""><i class="ti-target"></i>activity log</a>
                 <a href="#" title=""><i class="ti-settings"></i>account setting</a>
                 <a href="{{ route('logout') }}" title=""><i class="ti-power-off"></i>log out</a>
-            </div>
-        </div>
+            </div> --}}
+        </div></a>
     </div>
 </div>

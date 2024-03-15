@@ -148,8 +148,8 @@
                         <li>
                             <div class="nearly-pepls">
                         <figure>
-                            <a href="{{route('profilee',['userid' => $user->id ])}}" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
-                            <a href="{{route('profilee',['userid' => $user->id ])}}" title=""><img src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
+                            <a href="{{route('profilee',['userid' => $user->id ])}}" title=""><img style="width: 100px ;height:auto;" src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
+                            <a href="{{route('profilee',['userid' => $user->id ])}}" title=""><img style="width: 100px ;height:auto;" src="{{asset('images/'. $user->profile_image)}}" alt=""></a>
                         </figure>
                         <div class="pepl-info">
                             <h4><a href="{{route('profilee',['userid' => $user->id ])}}" title="">{{$user->name}}</a></h4>
